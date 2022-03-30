@@ -17,16 +17,10 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const promptsRouter = require('./routes/prompts');
 
-let whitelist =  ['https://typescripts-react.herokuapp.com/', "https://typescripts-react.herokuapp.com/type", 'https://typescripts-react.herokuapp.com/login', 'https://typescripts-react.herokuapp.com/highscore']
-
 const corsOptions ={
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
 }
 
 const app = express();
@@ -57,7 +51,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors(corsOptions));
 
-app.use('/', cors(corsOptions), indexRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/prompts', promptsRouter);
 
