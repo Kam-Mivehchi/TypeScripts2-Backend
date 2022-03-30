@@ -19,7 +19,7 @@ const promptsRouter = require('./routes/prompts');
 
 const corsOptions ={
   origin:'*', 
-  credentials:true,            //access-control-allow-credentials:true
+  credentials:false,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
 
