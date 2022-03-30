@@ -18,7 +18,7 @@ const usersRouter = require('./routes/users');
 const promptsRouter = require('./routes/prompts');
 
 const corsOptions ={
-  origin:'https://typescripts-react.herokuapp.com/', 
+  origin:'*', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
