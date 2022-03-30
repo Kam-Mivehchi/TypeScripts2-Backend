@@ -18,8 +18,8 @@ const usersRouter = require('./routes/users');
 const promptsRouter = require('./routes/prompts');
 
 const corsOptions ={
-  origin: "*", 
-  credentials: false,            //access-control-allow-credentials:true
+  origin: "*, https://typescripts-react.herokuapp.com/", 
+  credentials: true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
 
@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors(corsOptions));
 
 app.use('/', indexRouter);
-app.use('/users', cors(corsOptions), usersRouter);
+app.use('/users', usersRouter);
 app.use('/prompts', promptsRouter);
 
 
