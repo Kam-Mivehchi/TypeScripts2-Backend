@@ -18,8 +18,8 @@ const usersRouter = require('./routes/users');
 const promptsRouter = require('./routes/prompts');
 
 const corsOptions ={
-  origin:'*', 
-  credentials:false,            //access-control-allow-credentials:true
+  origin:false, 
+  credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
 
